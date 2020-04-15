@@ -6,7 +6,8 @@ with open("credentials.json") as creds:
     creds = json.loads(creds.read())
     TOKEN = creds["TOKEN"]  
 
-tierlist_link = 'https://github.com/mha-smashrising/tierlist'
+tierlist_link = 'https://mha-smashrising.github.io/tierlist/'
+calculate_link = 'https://mha-smashrising.github.io/tierlist/calculator.html'
 github_link = 'https://github.com/mha-smashrising/'
 
 client = discord.Client()
@@ -58,6 +59,11 @@ async def about(ctx):
 @bot.command()
 async def tierlist(ctx):
     # await ctx.send(arg + " <-- this means the bot is online.. nya >.<")
-    await ctx.send(tierlist_link)
+    await ctx.send('NOTE: This is not a comprehensive tier list, just a ranking based on how much power each card gives in terms of their stats.\n' + tierlist_link)
+
+# calculate
+@bot.command()
+async def calculate(ctx):
+    await ctx.send(calculate_link)
 
 bot.run(TOKEN)
